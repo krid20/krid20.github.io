@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Mario Game</title>
+</head>
+<body>
+  <!-- Main game container -->
+  <div class="game" id="game">
+
+    <!-- HUD (Heads Up Display) to show level and score -->
+    <div class="hud" id="hud">Level: 1 | Score: 0</div>
+
+    <!-- Background elements -->
+    <div id="clouds"></div>
+    <div id="trees"></div>
+
+    <!-- Player character -->
+    <div class="player" id="player"></div>
+
+    <!-- Level goal (princess or exit) -->
+    <div class="goal" id="goal"></div>
+
+    <!-- Coins container -->
+    <div id="coins"></div>
+
+    <!-- Obstacles container -->
+    <div id="obstacles"></div>
+
+    <!-- Ground -->
+    <div class="ground"></div>
+
+    <!-- Loss overlay -->
+    <div class="overlay" id="lossOverlay">
+      <div class="overlay-card">
+        <h2>You lost!</h2>
+        <button class="restart-btn" id="restartBtn">Restart</button>
+      </div>
+    </div>
+
+    <!-- Win overlay -->
+    <div class="overlay" id="winOverlay">
+      <div class="overlay-card">
+        <h2>You win!</h2>
+        <p id="winScore">Score: 0</p>
+        <button class="restart-btn" id="winRestartBtn">Replay</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // DOM elements
+    const player = document.getElementById('player');
+    const goal = document.getElementById('goal');
+    const hud = document.getElementById('hud');
+    const coinsEl = document.getElementById('coins');
+    const obstaclesEl = document.getElementById('obstacles');
+    const cloudsEl = document.getElementById('clouds');
+    const treesEl = document.getElementById('trees');
+    const lossOverlay = document.getElementById('lossOverlay');
+    const restartBtn = document.getElementById('restartBtn');
+    const winOverlay = document.getElementById('winOverlay');
+    const winScore = document.getElementById('winScore');
+    const winRestartBtn = document.getElementById('winRestartBtn');
+
+    // Game dimensions and ground position
+    let gameW = window.innerWidth;
+    let gameH = window.innerHeight;
+    let groundY = gameH - 70;
+
+    // Game state variables
+    let level = 1;
+    let score = 0;
+    let paused = false;
+
+    // Player state object
+    const playerState = {
+      x: 40, // initial X position
+      y: groundY - 64, // initial Y position (on the ground)
+      w: 64, h: 64, // width and height
+      vx: 0, vy: 0, // velocity
+      speed: 4, // horizontal speed
+      jumpPower: 11, // jump strength
+      onGround: true // is player on ground
+    };
+
+    // Obstacles vertical position
+    let obsY = groundY - 28;
+
+    // Coin vertical positions
+    const coinLow = () => groundY - 130;
+    const coinMid = () => groundY - 170;
+    const coinHigh = () => groundY - 210;
+
+    // Constants for layout
+    const CLOUD_WIDTH = 140;
+    const TREE_WIDTH = 160;
+    const COIN_WIDTH = 44;
+    const OB_WIDTH = 28;
+
+    // Background layouts
+    const cloudLayout = [
+      {x: 80,  y: 20},
+      {x: 380, y: 35},
+      {x: 700, y: 20}
+    ];
+
+    const treeLayout = [
+      {x: 80},
+      {x: 420},
+      {x: 760}
+    ];
+
+    // Levels configuration
+    const levels = [
+      {
+        coins: [
+          {x: 200, y: coinLow()},
+          {x: 320, y: coinMid()},
+          {x: 420, y: coinLow()},
+          {x: 520, y: coinHigh()}
+        ],
+        obstaclesCount: 3,
+        goal: {x: () => gameW - 120, y: () => groundY - 72}
+      },
+      {
+        coins: [
+          {x: 180, y: coinMid()},
+          {x: 300, y: coinLow()},
+          {x: 460, y: coinHigh()},
+          {x: 600, y: coinLow()},
+          {x: 720, y: coinMid()}
+        ],
+        obstaclesCount: 4,
+        goal: {x: () => gameW - 120, y: () => groundY - 72}
+      },
+      {
+        coins: [
+          {x: 160, y: coinLow()},
+          {x: 280, y: coinHigh()},
+          {x: 420, y: coinMid()},
+          {x: 560, y: coinLow()},
+          {x: 700, y: coinHigh()},
+          {x: 820, y: coinMid()}
+        ],
+        obstaclesCount: 5,
+        goal: {x: () => gameW - 120, y: () => groundY - 72}
+      }
+    ];
+
+    // Centers a group of items horizontally on the screen
+    function centerOffset(items, itemWidth) {
+      const minX = Math.min(...items.map(i => i.x));
+      const maxX = Math.max(...items.map(i => i.x + itemWidth));
+      const groupWidth = maxX - minX;
+      return (gameW - groupWidth) / 2 - minX;
+    }
+
+    // Renders clouds and trees in background
+    function renderBackground() {
+      cloudsEl.innerHTML = '';
+      treesEl.innerHTML = '';
+
+      // Position clouds
+      const cloudOffset = centerOffset(cloudLayout, CLOUD_WIDTH);
+      cloudLayout.forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'cloud';
+        el.style.left = (c.x + cloudOffset) + 'px';
+        el.style.top = c.y + 'px';
+        cloudsEl.appendChild(el);
+      });
+
+      // Position trees
+      const treeOffset = centerOffset(treeLayout, TREE_WIDTH);
+      treeLayout.forEach(t => {
+        const el = document.createElement('div');
+        el.className = 'tree';
+        el.style.left = (t.x + treeOffset) + 'px';
+        treesEl.appendChild(el);
+      });
+    }
+
+    // Generates obstacle positions
+    function generateObstacleLayout(count, gap = 220) {
+      const items = [];
+      for (let i = 0; i < count; i++) {
+        items.push({ x: i * gap, y: obsY });
+      }
+      const offset = centerOffset(items, OB_WIDTH);
+      return items.map(o => ({ x: o.x + offset, y: o.y }));
+    }
+
+    // Recalculate bounds on window resize
+    function recalcBounds() {
+      gameW = window.innerWidth;
+      gameH = window.innerHeight;
+      groundY = gameH - 70;
+      obsY = groundY - 28;
+      playerState.y = groundY - playerState.h;
+
+      // Adjust coin positions
+      levels.forEach(lvl => {
+        lvl.coins.forEach(c => {
+          if (c.y <= groundY - 200) c.y = coinHigh();
+          else if (c.y <= groundY - 160) c.y = coinMid();
+          else c.y = coinLow();
+        });
+      });
+      renderBackground();
+      setPositions();
+    }
+    window.addEventListener('resize', recalcBounds);
+
+    // Keyboard input tracking
+    const keys = {};
+    window.addEventListener('keydown', e => keys[e.code] = true);
+    window.addEventListener('keyup', e => keys[e.code] = false);
+
+    // Updates HUD (Level & Score)
+    function updateHUD() {
+      hud.textContent = `Level: ${level} | Score: ${score}`;
+    }
+
+    // Positions coins, obstacles, and goal
+    function setPositions() {
+      const cfg = levels[level - 1];
+
+      // Set goal position
+      const goalX = typeof cfg.goal.x === 'function' ? cfg.goal.x() : cfg.goal.x;
+      const goalY = typeof cfg.goal.y === 'function' ? cfg.goal.y() : cfg.goal.y;
+      goal.style.left = goalX + 'px';
+      goal.style.top = goalY + 'px';
+
+      // Set coins
+      const coinOffset = centerOffset(cfg.coins, COIN_WIDTH);
+      coinsEl.innerHTML = '';
+      cfg.coins.forEach(pos => {
+        const c = document.createElement('div');
+        c.className = 'coin';
+        c.style.left = (pos.x + coinOffset) + 'px';
+        c.style.top = pos.y + 'px';
+        coinsEl.appendChild(c);
+      });
+
+      // Set obstacles
+      const obstacles = generateObstacleLayout(cfg.obstaclesCount, 220);
+      obstaclesEl.innerHTML = '';
+      obstacles.forEach(pos => {
+        const ob = document.createElement('div');
+        ob.className = 'obstacle';
+        ob.style.left = pos.x + 'px';
+        ob.style.top = pos.y + 'px';
+        obstaclesEl.appendChild(ob);
+      });
+    }
+
+    // Resets player to initial position
+    function resetPlayer() {
+      playerState.x = 40;
+      playerState.y = groundY - playerState.h;
+      playerState.vx = 0;
+      playerState.vy = 0;
+      playerState.onGround = true;
+      player.style.left = playerState.x + 'px';
+      player.style.top = playerState.y + 'px';
+    }
+
+    // Get DOM element rectangle
+    function rect(el) { return el.getBoundingClientRect(); }
+
+    // Collision detection
+    function collide(a, b) {
+      return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+    }
+
+    // Show loss overlay
+    function showLoss() {
+      paused = true;
+      lossOverlay.classList.add('show');
+    }
+
+    // Hide loss overlay
+    function hideLoss() {
+      paused = false;
+      lossOverlay.classList.remove('show');
+    }
+
+    // Show win overlay
+    function showWin() {
+      paused = true;
+      winScore.textContent = `Score: ${score}`;
+      winOverlay.classList.add('show');
+    }
+
+    // Hide win overlay
+    function hideWin() {
+      paused = false;
+      winOverlay.classList.remove('show');
+    }
+
+    // Start a level
+    function startLevel(resetScore = true) {
+      if (resetScore) score = 0;
+      updateHUD();
+      resetPlayer();
+      renderBackground();
+      setPositions();
+    }
+
+    // Advance to next level
+    function nextLevel() {
+      if (level < 3) {
+        level++;
+        startLevel(false);
+      } else {
+        showWin();
+      }
+    }
+
+    // Player dies
+    function die() {
+      showLoss();
+    }
+
+    // Event listeners for restart buttons
+    restartBtn.addEventListener('click', () => {
+      hideLoss();
+      level = 1;
+      score = 0;        // reset score after losing
+      updateHUD();
+      startLevel(true);
+    });
+
+    winRestartBtn.addEventListener('click', () => {
+      hideWin();
+      level = 1;
+      startLevel(true);
+    });
+
+    // Main game loop
+    function gameLoop() {
+      requestAnimationFrame(gameLoop); // calls loop repeatedly
+
+      if (paused) return; // stop updates if paused
+
+      // Horizontal movement
+      playerState.vx = 0;
+      if (keys['ArrowLeft'] || keys['KeyA']) playerState.vx = -playerState.speed;
+      if (keys['ArrowRight'] || keys['KeyD']) playerState.vx = playerState.speed;
+
+      // Jump
+      if ((keys['ArrowUp'] || keys['Space'] || keys['KeyW']) && playerState.onGround) {
+        playerState.vy = -playerState.jumpPower;
+        playerState.onGround = false;
+      }
+
+      // Gravity
+      playerState.vy += 0.35;
+
+      // Update position
+      playerState.x += playerState.vx;
+      playerState.y += playerState.vy;
+
+      // Keep player inside game boundaries
+      if (playerState.x < 0) playerState.x = 0;
+      if (playerState.x > gameW - playerState.w) playerState.x = gameW - playerState.w;
+      if (playerState.y >= groundY - playerState.h) {
+        playerState.y = groundY - playerState.h;
+        playerState.vy = 0;
+        playerState.onGround = true;
+      }
+
+      // Apply position to player element
+      player.style.left = playerState.x + 'px';
+      player.style.top = playerState.y + 'px';
+
+      const playerRect = rect(player);
+      const goalRect = rect(goal);
+
+      // Coin collection
+      document.querySelectorAll('.coin').forEach(c => {
+        if (collide(playerRect, rect(c))) {
+          score += 1;
+          updateHUD();
+          c.style.left = '-999px'; // remove coin visually
+        }
+      });
+
+      // Obstacle collision
+      document.querySelectorAll('.obstacle').forEach(ob => {
+        if (collide(playerRect, rect(ob))) {
+          die();
+        }
+      });
+
+      // Check if player reached goal
+      if (collide(playerRect, goalRect)) {
+        nextLevel();
+      }
+    }
+
+    // Initialize game
+    updateHUD();
+    startLevel(true);
+    gameLoop();
+  </script>
+
+  <style>
+    /* Global resets */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Body styling */
+    body {
+      background: #111;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    /* Main game container */
+    .game {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #87ceeb; /* sky blue */
+      overflow: hidden;
+      border: 0;
+    }
+
+    /* HUD styling */
+    .hud {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 10;
+    }
+
+    /* Ground styling */
+    .ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 70px;
+      background: #3aa655; /* grass green */
+      border-top: 6px solid #6b4f1d; /* dirt line */
+    }
+
+    /* Cloud styling */
+    .cloud {
+      position: absolute;
+      top: 20px;
+      width: 140px;
+      height: 60px;
+      background: url('cloud.png') no-repeat center/contain;
+      opacity: 0.8;
+    }
+
+    /* Tree styling */
+    .tree {
+      position: absolute;
+      bottom: 70px;
+      width: 160px;
+      height: 140px;
+      background: url('tree.png') no-repeat center/contain;
+      opacity: 0.9;
+    }
+
+    /* Player, coin, obstacle, goal common styling */
+    .player, .coin, .obstacle, .goal {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      image-rendering: pixelated;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Specific element backgrounds */
+    .player { background-image: url('2d-mario-running.gif'); }
+    .coin { background-image: url('giphy.gif'); width: 44px; height: 44px; }
+    .obstacle { background-image: url('mushroomm.png'); width: 28px; height: 28px; }
+    .goal { background-image: url('princesss.png'); width: 72px; height: 72px; }
+
+    /* Overlay screens (win/loss) */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Show overlay when class "show" is added */
+    .overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Overlay card content */
+    .overlay-card {
+      background: rgba(0,0,0,0.75);
+      border: 2px solid #fff;
+      padding: 20px 28px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 240px;
+    }
+
+    .overlay-card h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .overlay-card p {
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    /* Restart button styling */
+    .restart-btn {
+      background: #ffcc00;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</body>
+</html>

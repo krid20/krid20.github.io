@@ -1,0 +1,246 @@
+/* Reset */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #b39a7c;
+  font-family: 'Times New Roman', Times, serif;
+  color: #2f1805;
+  line-height: 1.6;
+}
+
+/* Logo & Title */
+.logo-img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 20px auto 10px auto;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.logo-text {
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  margin: 10px 0 20px 0;
+  color: #000000;
+}
+
+/* Campus Image */
+.compus-img {
+  width: 100%;
+  display: block;
+  margin: 0 auto 20px auto;
+  max-height: 240px;
+  object-fit: cover;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+/* Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  justify-items: center;
+  align-items: center;
+  background: #d2bfa3;
+  padding: 24px;
+}
+
+.container img {
+  margin: 0;
+  border: 10px solid white;
+  box-shadow: 5px 10px 5px black;
+  width: 270px;
+  height: 180px;
+  object-fit: cover;
+  background: white;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 24px 0;
+  background: #d2bfa3;
+}
+
+.gallery-img {
+  border: 10px solid white;
+  box-shadow: 5px 10px 5px black;
+  width: 270px;
+  height: 180px;
+  object-fit: cover;
+  background: white;
+  margin: 0;
+}
+
+/* Navigation */
+nav {
+  width: 1000px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  display: inline-block;
+  width: 120px;
+  background: #e4c8a6;
+  color: #2f1805;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  padding: 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #d1ad82;
+  color: #2f1805;
+}
+
+/* Articles */
+.article {
+  width: 1000px;
+  margin: 20px auto;
+  padding: 0 10px 10px 10px;
+}
+
+.article h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  color: #a02119;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 7px;
+}
+
+.article p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #2f1805;
+  text-align: justify;
+  text-indent: 20px;
+  margin-bottom: 8px;
+}
+
+.article img.float-img {
+  float: right;
+  width: 80px;
+  height: 80px;
+  margin: 0 0 10px 10px;
+  background: #fff;
+  object-fit: cover;
+  border: 1px solid #999;
+  box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
+}
+
+.article a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #2f1805;
+  text-decoration: underline;
+  margin-left: 7px;
+}
+
+/* Separator */
+hr {
+  width: 1000px;
+  margin: 10px auto;
+  border: none;
+  border-top: 1px solid #5a3b1a;
+}
+
+/* Footer */
+footer {
+  width: 1000px;
+  background: #b39a7c;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 0;
+}
+
+footer p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12px;
+  color: #2f1805;
+  text-align: center;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1000px) {
+  body {
+    background: #eee;
+  }
+
+  .logo-text,
+  .compus-img,
+  nav,
+  .article,
+  footer,
+  hr {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article img.float-img {
+    float: none;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .gallery img,
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+}
+.article .centered-content {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article .centered-content table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.article-image {
+  display: block;
+  margin: 10px auto 20px auto;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  box-shadow: none;
+}

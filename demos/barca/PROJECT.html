@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FC Barcelona Team</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #1900a9, #a70c0c);
+      color: #ffffff;
+    } 
+    header {
+      background: linear-gradient(to right, #0a0a23, #1e1e3f);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    .logo-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .logo-container img {
+      width: 150px;
+    }
+    main {
+      padding: 20px;
+    }
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .player {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .player:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .player img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .player h3 {
+      margin: 10px 0 5px;
+    }
+    .player p {
+      margin: 5px 0;
+      font-size: 0.9em;
+    }
+    .player-profile {
+      display: none;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 20px auto;
+      position: relative;
+    }
+    .player-profile h2 {
+      margin-top: 0;
+    }
+    .back-button {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .back-button a {
+      color: #fff;
+      background-color: #003366;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .back-button a:hover {
+      background-color: #002244;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FC Barcelona Team</h1>
+    <nav>
+      <a href="PROJECT.html" style="color: white; margin-right: 15px; text-decoration: none;">Home</a>
+      <a href="calendar.html" style="color: white; margin-right: 15px; text-decoration: none;">Calendar</a>
+      <a href="trophies.html" style="color: white; text-decoration: none;">Trophies</a>
+    </nav>
+  </header>
+
+  <div class="logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona Logo">
+  </div>
+
+  <main>
+    <div class="team-container">
+      
+      <div class="player" onclick="showProfile('player1')">
+        <img src="https://www.fcbarcelona.com/photo-resources/2024/10/14/a62932d1-106c-4762-84bf-89fa9a633c71/25-Szczesny-M.png?width=670&height=790" alt="Wojciech Szczęsny">
+        <h3>Wojciech Szczęsny</h3>
+        <p>Goalkeeper</p>
+      </div>
+
+      <div class="player" onclick="showProfile('player2')">
+        <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/c058dc89-fa0b-4aa9-99de-a129ece52320/13-Inaki_Pena-M.png?width=670&height=790" alt="Iñaki Peña">
+        <h3>Iñaki Peña</h3>
+        <p>Goalkeeper</p>
+      </div>
+
+      <div class="player" onclick="showProfile('player3')">
+        <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/04c3b761-ccbd-498f-b988-b67ed1693906/01-Ter_Stegen-M.png?width=670&height=790" alt="Marc-André ter Stegen">
+        <h3>Marc-André ter Stegen</h3>
+        <p>Goalkeeper</p>
+      </div>
+
+    </div>
+
+    <div class="player-profile" id="player1">
+  <h2>Wojciech Szczęsny</h2>
+
+  
+  <p><strong>Full Name:</strong> Wojciech Tomasz Szczęsny</p>
+  <p><strong>Birthday:</strong> April 18, 1990</p>
+  <p><strong>Age:</strong> 35 years old</p>
+  <p><strong>Nationality:</strong> Polish</p>
+  <p><strong>Position:</strong> Goalkeeper</p>
+  <p><strong>Height:</strong> 1.96 m (6 ft 5 in)</p>
+  <p><strong>Current Club:</strong>FC Barcelone</p>
+  <p><strong>Previous Clubs:</strong></p>
+<ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+  <li>
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="Arsenal" style="width:20px; vertical-align: middle;"> Arsenal
+  </li>
+  <li>
+    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/38/Logo_Brentford_FC_2017.svg/1200px-Logo_Brentford_FC_2017.svg.png" alt="Brentford" style="width:20px; vertical-align: middle;"> Brentford (loan)
+  </li>
+  <li>
+    <img src="https://upload.wikimedia.org/wikipedia/en/f/f7/AS_Roma_logo_%282017%29.svg" alt="AS Roma" style="width:20px; vertical-align: middle;"> AS Roma (loan)
+  </li>
+  <li>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Juventus_FC_-_logo_white_%28Italy%2C_2017%29.svg/1200px-Juventus_FC_-_logo_white_%28Italy%2C_2017%29.svg.png" alt="Juventus" style="width:15px; vertical-align: middle;"> Juventus
+  </li>
+</ul>
+
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+<div class="player-profile" id="player2">
+  <h2>Iñaki Peña</h2>
+
+  
+  <p><strong>Full Name:</strong> Iñaki Peña Montero</p>
+  <p><strong>Birthday:</strong> March 2, 1999</p>
+  <p><strong>Age:</strong> </span>26 years old</p>
+  <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+  <p><strong>Position:</strong> Goalkeeper</p>
+  <p><strong>Height:</strong> 1.84 m (6 ft 0 in)</p>
+  <p><strong>Current Club:</strong> FC Barcelona</p>
+
+  <p><strong>Previous Clubs:</strong></p>
+  <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="Barcelona B" style="width:20px; vertical-align: middle;"> FC Barcelona B
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Galatasaray_Sports_Club_Logo.png/1200px-Galatasaray_Sports_Club_Logo.png" alt="Galatasaray" style="width:20px; vertical-align: middle;"> Galatasaray (loan)
+    </li>
+  </ul>
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+<div class="player-profile" id="player3">
+  <h2>Marc-André ter Stegen</h2>
+
+  <p><strong>Full Name:</strong> Marc-André ter Stegen</p>
+  <p><strong>Birthday:</strong> April 30, 1992</p>
+  <p><strong>Age:</strong></span> 33 years old</p>
+  <p><strong>Nationality:</strong> German 🇩🇪</p>
+  <p><strong>Position:</strong> Goalkeeper</p>
+  <p><strong>Height:</strong> 1.87 m (6 ft 2 in)</p>
+  <p><strong>Current Club:</strong> FC Barcelona</p>
+
+  <p><strong>Previous Clubs:</strong></p>
+  <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/1200px-Borussia_M%C3%B6nchengladbach_logo.svg.png" alt="Borussia Mönchengladbach" style="width:20px; vertical-align: middle;"> Borussia Mönchengladbach
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona" style="width:20px; vertical-align: middle;"> FC Barcelona
+    </li>
+  </ul>
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+  </main>
+
+  <script>
+    function showProfile(id) {
+      
+      const profiles = document.querySelectorAll('.player-profile');
+      profiles.forEach(profile => profile.style.display = 'none');
+
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function goBack() {
+      
+      const profiles = document.querySelectorAll('.player-profile');
+      profiles.forEach(profile => profile.style.display = 'none');
+    }
+  </script>
+</body>
+</html>
+
+<div class="team-container">
+    
+    <div class="player" onclick="showProfile('cubarsi')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/951e72f0-59ae-4685-be81-f2afced7e6d6/02-Cubarsi-M.png?width=670&height=790" alt="Pau Cubarsí">
+      <h3>Pau Cubarsí</h3>
+      <p>Defender</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('balde')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/e3784cf8-9f03-45e2-ab44-007f2adadf32/03-Balde-M.png?width=670&height=790 " alt="Alejandro Balde">
+      <h3>Alejandro Balde</h3>
+      <p>Defender</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('inigo')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/3129af5f-0ec1-4474-988c-1415092eb74f/05-Martinez-M.png?width=670&height=790" alt="Iñigo Martínez">
+      <h3>Iñigo Martínez</h3>
+      <p>Defender</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('araujo')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/5352ecab-dc7a-4d20-a047-67af419dd96b/04-Araujo-M.png?width=670&height=790" alt="Ronald Araújo">
+      <h3>Ronald Araújo</h3>
+      <p>Defender</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('kounde')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/9f7d8d15-0244-4def-a931-8eb563a598a1/23-Kounde-M.png?width=670&height=790" alt="Jules Koundé">
+      <h3>Jules Koundé</h3>
+      <p>Defender</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('christensen')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/0969d283-c3f8-471a-8638-9a37124ea1a0/15-Christensen-M.png?width=670&height=790" alt="Andreas Christensen">
+      <h3>Andreas Christensen</h3>
+      <p>Defender</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('garcia')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/60ec100e-ca62-492c-a3c7-7e73956b035b/24-Eric_Garcia-M.png?width=670&height=790" alt="Eric García">
+      <h3>Eric García</h3>
+      <p>Defender</p>
+    </div>
+  </div>
+  
+  <div class="player-profile" id="cubarsi">
+    <h2>Pau Cubarsí</h2>
+  
+    <p><strong>Full Name:</strong> Pau Cubarsí Paredes</p>
+    <p><strong>Birthday:</strong> January 22, 2007</p>
+    <p><strong>Age:</strong></span>18 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Centre-back</p>
+    <p><strong>Height:</strong> 1.84 m (6 ft 0 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/5/56/Logo_Girona_FC_-_2022.svg/1200px-Logo_Girona_FC_-_2022.svg.png" alt="Girona FC" style="width:20px; vertical-align: middle;"> Girona FC (Youth Academy)
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona" style="width:20px; vertical-align: middle;"> FC Barcelona (Youth & Senior)
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="balde">
+    <h2>Alejandro Balde</h2>
+  
+  
+    <p><strong>Full Name:</strong> Alejandro Balde</p>
+    <p><strong>Birthday:</strong> October 18, 2003</p>
+    <p><strong>Age:</strong></span> 21 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Left-back</p>
+    <p><strong>Height:</strong> 1.78 m (5 ft 10 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona" style="width:20px; vertical-align: middle;"> FC Barcelona Youth
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+
+  </script>
+  <div class="player-profile" id="inigo">
+    <h2>Iñigo Martínez</h2>
+  
+    <p><strong>Full Name:</strong> Iñigo Martínez Berridi</p>
+    <p><strong>Birthday:</strong> May 17, 1991</p>
+    <p><strong>Age:</strong></span>33 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Centre-back</p>
+    <p><strong>Height:</strong> 1.82 m (5 ft 11 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://logodownload.org/wp-content/uploads/2022/11/real-sociedad-logo-0.png" alt="Real Sociedad" style="width:20px; vertical-align: middle;"> Real Sociedad
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/34/Logo_Athletic_Club_Bilbao.svg/1200px-Logo_Athletic_Club_Bilbao.svg.png" alt="Athletic Bilbao" style="width:20px; vertical-align: middle;"> Athletic Bilbao
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  
+  <div class="player-profile" id="araujo">
+    <h2>Ronald Araújo</h2>
+  
+  
+    <p><strong>Full Name:</strong> Ronald Federico Araújo da Silva</p>
+    <p><strong>Birthday:</strong> March 7, 1999</p>
+    <p><strong>Age:</strong></span>26 years old</p>
+    <p><strong>Nationality:</strong> Uruguayan 🇺🇾</p>
+    <p><strong>Position:</strong> Centre-back</p>
+    <p><strong>Height:</strong> 1.92 m (6 ft 4 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/CA_Rentistas_2020.png" alt="Rentistas" style="width:20px; vertical-align: middle;"> Rentistas
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Escudo_Boston_River_2019.png/1024px-Escudo_Boston_River_2019.png" alt="Boston River" style="width:20px; vertical-align: middle;"> Boston River
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="kounde">
+    <h2>Jules Koundé</h2>
+  
+    <p><strong>Full Name:</strong> Jules Olivier Koundé</p>
+    <p><strong>Birthday:</strong> November 12, 1998</p>
+    <p><strong>Age:</strong></span>26 years old</p>
+    <p><strong>Nationality:</strong> French 🇫🇷</p>
+    <p><strong>Position:</strong> Centre-back</p>
+    <p><strong>Height:</strong> 1.78 m (5 ft 10 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Current_logo_of_Girondins_de_Bordeaux.png" alt="Bordeaux" style="width:20px; vertical-align: middle;"> Bordeaux
+      </li>
+      <li>
+        <img src="https://logodownload.org/wp-content/uploads/2018/11/sevilla-fc-logo-1.png" alt="Sevilla" style="width:20px; vertical-align: middle;"> Sevilla FC
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+<div class="player-profile" id="christensen">
+  <h2>Andreas Christensen</h2>
+
+  <p><strong>Full Name:</strong> Andreas Bødtker Christensen</p>
+  <p><strong>Birthday:</strong> April 10, 1996</p>
+  <p><strong>Age:</strong></span> 29 years old</p>
+  <p><strong>Nationality:</strong> Danish 🇩🇰</p>
+  <p><strong>Position:</strong> Centre-back</p>
+  <p><strong>Height:</strong> 1.88 m (6 ft 2 in)</p>
+  <p><strong>Current Club:</strong> FC Barcelona</p>
+
+  <p><strong>Previous Clubs:</strong></p>
+  <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/5/51/Logo_Chelsea.svg/2048px-Logo_Chelsea.svg.png" alt="Chelsea" style="width:20px; vertical-align: middle;"> Chelsea FC
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/1200px-Borussia_M%C3%B6nchengladbach_logo.svg.png" alt="Borussia Mönchengladbach" style="width:20px; vertical-align: middle;"> Borussia Mönchengladbach (Loan)
+    </li>
+  </ul>
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+<div class="player-profile" id="garcia">
+  <h2>Eric García</h2>
+  <p><strong>Full Name:</strong> Eric García Martret</p>
+  <p><strong>Birthday:</strong> January 9, 2001</p>
+  <p><strong>Age:</strong></span> 24 years old</p>
+  <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+  <p><strong>Position:</strong> Centre-back</p>
+  <p><strong>Height:</strong> 1.82 m (5 ft 11 in)</p>
+  <p><strong>Current Club:</strong> FC Barcelona</p>
+
+  <p><strong>Previous Clubs:</strong></p>
+  <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/b/ba/Logo_Manchester_City_2016.svg/2048px-Logo_Manchester_City_2016.svg.png" alt="Manchester City" style="width:20px; vertical-align: middle;"> Manchester City
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/a/a1/Logo_FC_Barcelona.svg/1011px-Logo_FC_Barcelona.svg.png" alt="FC Barcelona Youth" style="width:20px; vertical-align: middle;"> FC Barcelona Youth
+    </li>
+  </ul>
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+<div class="team-container">
+   
+    <div class="player" onclick="showProfile('gavi')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/545795b7-4c63-4347-94ab-5f2a49b1eddd/06-Gavi-M.png?width=670&height=790" alt="Gavi">
+      <h3>Gavi</h3>
+      <p>Midfielder</p>
+    </div>
+  
+ 
+    <div class="player" onclick="showProfile('pedri')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/61d91e06-7435-4823-93e3-2ef7e91b3c8b/08-Pedri-M.png?width=670&height=790" alt="Pedri">
+      <h3>Pedri</h3>
+      <p>Midfielder</p>
+    </div>
+  
+    
+    <div class="player" onclick="showProfile('pablo')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/0b7225dc-8ec1-4957-bb92-3ebd72f00dd7/14-Pablo_Torre-M.png?width=670&height=790" alt="Pablo Torre">
+      <h3>Pablo Torre</h3>
+      <p>Midfielder</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('fermin')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/bc22e993-3083-4ef5-aa77-217951756cca/16-Fermin-M.png?width=670&height=790" alt="Fermin López">
+      <h3>Fermín López</h3>
+      <p>Midfielder</p>
+    </div>
+  
+    
+    <div class="player" onclick="showProfile('casado')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/d9fb4b17-1260-48a5-841d-ffd2a60e57e4/17-Casado-M.png?width=670&height=790" alt="Marc Casadó">
+      <h3>Marc Casadó</h3>
+      <p>Midfielder</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('olmo')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/6df53816-c907-4ecc-bd0a-c2e8e5a281c2/20-Olmo-M.png?width=670&height=790" alt="Dani Olmo">
+      <h3>Dani Olmo</h3>
+      <p>Midfielder</p>
+    </div>
+  
+ 
+    <div class="player" onclick="showProfile('dejong')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/1f6c10a5-07cd-47b3-929b-e29ccabe18d7/21-De_Jong-M.png?width=670&height=790" alt="Frenkie de Jong">
+      <h3>Frenkie de Jong</h3>
+      <p>Midfielder</p>
+    </div>
+  </div>
+  
+  <div class="player-profile" id="gavi">
+    <h2>Gavi</h2>
+  
+  
+    <p><strong>Full Name:</strong> Pablo Martín Páez Gavira</p>
+    <p><strong>Birthday:</strong> August 5, 2004</p>
+    <p><strong>Age:</strong> </span> 20 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Midfielder</p>
+    <p><strong>Height:</strong> 1.73 m (5 ft 8 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/1/13/Real_betis_logo.svg/2493px-Real_betis_logo.svg.png" alt="Real Betis Youth" style="width:20px; vertical-align: middle;"> Real Betis Youth
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/a/a1/Logo_FC_Barcelona.svg/1011px-Logo_FC_Barcelona.svg.png" alt="FC Barcelona Youth" style="width:20px; vertical-align: middle;"> FC Barcelona Youth
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  
+  <div class="player-profile" id="pedri">
+    <h2>Pedri</h2>
+  
+    <p><strong>Full Name:</strong> Pedro González López</p>
+    <p><strong>Birthday:</strong> November 25, 2002</p>
+    <p><strong>Age:</strong></span> 22 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Midfielder</p>
+    <p><strong>Height:</strong> 1.74 m (5 ft 9 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/f5/Logo_UD_Las_Palmas.svg/1200px-Logo_UD_Las_Palmas.svg.png" alt="UD Las Palmas" style="width:20px; vertical-align: middle;"> UD Las Palmas
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="pablo">
+    <h2>Pablo Torre</h2>  
+    <p><strong>Full Name:</strong> Pablo Torre Rodríguez</p>
+    <p><strong>Birthday:</strong> April 3, 2003</p>
+    <p><strong>Age:</strong></span> 22 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Midfielder</p>
+    <p><strong>Height:</strong> 1.75 m (5 ft 9 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/c/ce/Racing_de_Santander_escudo.png" alt="Racing Santander" style="width:20px; vertical-align: middle;"> Racing Santander
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="fermin">
+    <h2>Fermín López</h2>
+  
+  
+    <p><strong>Full Name:</strong> Fermín López González</p>
+    <p><strong>Birthday:</strong> May 11, 2003</p>
+    <p><strong>Age:</strong></span> 21 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Midfielder</p>
+    <p><strong>Height:</strong> 1.75 m (5 ft 9 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/a/ae/Logo_Linares_Deportivo.svg/1200px-Logo_Linares_Deportivo.svg.png" alt="Linares" style="width:20px; vertical-align: middle;"> Linares (loan)
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/a/a1/Logo_FC_Barcelona.svg/1011px-Logo_FC_Barcelona.svg.png" alt="FC Barcelona Youth" style="width:20px; vertical-align: middle;"> FC Barcelona Youth
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+ <div class="player-profile" id="casado">
+  <h2>Marc Casadó</h2>
+
+
+  <p><strong>Full Name:</strong> Marc Casadó Hernández</p>
+  <p><strong>Birthday:</strong> September 14, 2003</p>
+  <p><strong>Age:</strong></span> 21 years old</p>
+  <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+  <p><strong>Position:</strong> Midfielder</p>
+  <p><strong>Height:</strong> 1.80 m (5 ft 11 in)</p>
+  <p><strong>Current Club:</strong> FC Barcelona</p>
+
+  <p><strong>Previous Clubs:</strong></p>
+  <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/a/a1/Logo_FC_Barcelona.svg/1011px-Logo_FC_Barcelona.svg.png" alt="FC Barcelona B" style="width:20px; vertical-align: middle;"> FC Barcelona B
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/00/CF_Damm_logo.png" alt="Damm CF" style="width:20px; vertical-align: middle;"> Damm CF
+    </li>
+  </ul>
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+<div class="player-profile" id="olmo">
+  <h2>Dani Olmo</h2>
+
+  <p><strong>Full Name:</strong> Daniel Olmo Carvajal</p>
+  <p><strong>Birthday:</strong> May 7, 1998</p>
+  <p><strong>Age:</strong></span> 26 years old</p>
+  <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+  <p><strong>Position:</strong> Attacking Midfielder</p>
+  <p><strong>Height:</strong> 1.77 m (5 ft 10 in)</p>
+  <p><strong>Current Club:</strong> RB Leipzig</p>
+
+  <p><strong>Previous Clubs:</strong></p>
+  <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Dinamo_Zagreb_logo.png" alt="Dinamo Zagreb" style="width:20px; vertical-align: middle;"> Dinamo Zagreb
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/9/94/Logo_RB_Leipzig_2020.svg/2560px-Logo_RB_Leipzig_2020.svg.png" alt="RB Leipzig" style="width:20px; vertical-align: middle;"> RB Leipzig
+    </li>
+  </ul>
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+<div class="player-profile" id="dejong">
+  <h2>Frenkie de Jong</h2>
+
+  <p><strong>Full Name:</strong> Frenkie de Jong</p>
+  <p><strong>Birthday:</strong> May 12, 1997</p>
+  <p><strong>Age:</strong></span> 27 years old</p>
+  <p><strong>Nationality:</strong> Dutch 🇳🇱</p>
+  <p><strong>Position:</strong> Midfielder</p>
+  <p><strong>Height:</strong> 1.80 m (5 ft 11 in)</p>
+  <p><strong>Current Club:</strong> FC Barcelona</p>
+
+  <p><strong>Previous Clubs:</strong></p>
+  <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/f4/Logo_Willem_II_Tilburg_-_2022.svg/1200px-Logo_Willem_II_Tilburg_-_2022.svg.png" alt="Willem II" style="width:20px; vertical-align: middle;"> Willem II
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/7/77/Ajax_Amsterdam_Logo.svg/2048px-Ajax_Amsterdam_Logo.svg.png" alt="Ajax" style="width:20px; vertical-align: middle;"> Ajax
+    </li>
+  </ul>
+
+  <div class="back-button">
+    <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+<div class="team-container">
+    
+    <div class="player" onclick="showProfile('ferran')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/1edefda1-8229-4232-ace9-2f35bf4d3000/07-Ferran_Torres-M.png?width=670&height=790" alt="Ferran Torres">
+      <h3>Ferran Torres</h3>
+      <p>Forward</p>
+    </div>
+  
+    
+    <div class="player" onclick="showProfile('lewandowski')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/894e4e5e-b6d0-434e-8610-890e0971a7b2/09-Lewandowski-M.png?width=670&height=790" alt="Robert Lewandowski">
+      <h3>Robert Lewandowski</h3>
+      <p>Forward</p>
+    </div>
+  
+    
+    <div class="player" onclick="showProfile('raphinha')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/266dc5af-16b0-4290-99c5-03d73a48df11/11-Raphinha-M.png?width=1340&height=1580" alt="Raphinha">
+      <h3>Raphinha</h3>
+      <p>Forward</p>
+    </div>
+  
+ 
+    <div class="player" onclick="showProfile('fati')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/a21d9ed5-ab8a-4705-ae9a-a6bd14e9dbba/10-Ansu_Fati-M.png?width=670&height=790" alt="Ansu Fati">
+      <h3>Ansu Fati</h3>
+      <p>Forward</p>
+    </div>
+  
+    
+    <div class="player" onclick="showProfile('pau')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/64d7a058-2043-4a39-a5b6-2b7525541fd5/18-Pau_Victor-M.png?width=670&height=790" alt="Pau Víctor">
+      <h3>Pau Víctor</h3>
+      <p>Forward</p>
+    </div>
+  
+    <div class="player" onclick="showProfile('lamine')">
+      <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/d942d5c0-5ada-423c-baf1-4d2ba5ebe3bb/19-Lamine-M.png?width=670&height=790" alt="Lamine Yamal">
+      <h3>Lamine Yamal</h3>
+      <p>Forward</p>
+    </div>
+  </div>
+  
+ 
+  <div class="player-profile" id="ferran">
+    <h2>Ferran Torres</h2>
+  
+  
+    <p><strong>Full Name:</strong> Ferran Torres García</p>
+    <p><strong>Birthday:</strong> February 29, 2000</p>
+    <p><strong>Age:</strong> </span> 25 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Forward / Winger</p>
+    <p><strong>Height:</strong> 1.84 m (6 ft 0 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Valenciacf.svg" alt="Valencia" style="width:20px; vertical-align: middle;"> Valencia CF
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="Manchester City" style="width:20px; vertical-align: middle;"> Manchester City
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="lewandowski">
+    <h2>Robert Lewandowski</h2>
+  
+    <p><strong>Full Name:</strong> Robert Lewandowski</p>
+    <p><strong>Birthday:</strong> August 21, 1988</p>
+    <p><strong>Age:</strong></span> 36 years old</p>
+    <p><strong>Nationality:</strong> Polish 🇵🇱</p>
+    <p><strong>Position:</strong> Striker</p>
+    <p><strong>Height:</strong> 1.85 m (6 ft 1 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/de/thumb/4/46/Lech_Poznan.svg/1200px-Lech_Poznan.svg.png" alt="Lech Poznań" style="width:20px; vertical-align: middle;"> Lech Poznań
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Borussia_Dortmund.png" alt="Borussia Dortmund" style="width:20px; vertical-align: middle;"> Borussia Dortmund
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg/1024px-Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg.png" alt="Bayern Munich" style="width:20px; vertical-align: middle;"> Bayern Munich
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="raphinha">
+    <h2>Raphinha</h2>
+  
+  
+    <p><strong>Full Name:</strong> Raphael Dias Belloli</p>
+    <p><strong>Birthday:</strong> December 14, 1996</p>
+    <p><strong>Age:</strong></span> 28 years old</p>
+    <p><strong>Nationality:</strong> Brazilian 🇧🇷</p>
+    <p><strong>Position:</strong> Winger / Forward</p>
+    <p><strong>Height:</strong> 1.76 m (5 ft 9 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/1/18/Vit%C3%B3ria_Guimar%C3%A3es_%28logo%29.svg/1200px-Vit%C3%B3ria_Guimar%C3%A3es_%28logo%29.svg.png" alt="Vitória Guimarães" style="width:20px; vertical-align: middle;"> Vitória Guimarães
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/1/12/Logo_Sporting_Clube_Portugal.svg/1200px-Logo_Sporting_Clube_Portugal.svg.png" alt="Sporting CP" style="width:20px; vertical-align: middle;"> Sporting CP
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e9/Logo_Stade_Rennais_FC.svg/1200px-Logo_Stade_Rennais_FC.svg.png" alt="Rennes" style="width:20px; vertical-align: middle;"> Stade Rennais (Rennes)
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/7/78/Logo_Leeds_United_FC.svg/1669px-Logo_Leeds_United_FC.svg.png" alt="Leeds United" style="width:20px; vertical-align: middle;"> Leeds United
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="fati">
+    <h2>Ansu Fati</h2>
+  
+    <p><strong>Full Name:</strong> Anssumane Fati Vieira</p>
+    <p><strong>Birthday:</strong> October 31, 2002</p>
+    <p><strong>Age:</strong></span> 22 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸 (born in Guinea-Bissau 🇬🇼)</p>
+    <p><strong>Position:</strong> Winger / Forward</p>
+    <p><strong>Height:</strong> 1.78 m (5 ft 10 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg" alt="Brighton" style="width:20px; vertical-align: middle;"> Brighton & Hove Albion (loan)
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona" style="width:20px; vertical-align: middle;"> FC Barcelona Youth
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <div class="player-profile" id="pau">
+    <h2>Pau Víctor</h2>
+  
+    <p><strong>Full Name:</strong> Pau Víctor Delgado</p>
+    <p><strong>Birthday:</strong> November 26, 2001</p>
+    <p><strong>Age:</strong></span> 23 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Forward</p>
+    <p><strong>Height:</strong> 1.80 m (5 ft 11 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona B / FC Barcelona (promotion)</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/5/56/Logo_Girona_FC_-_2022.svg/1200px-Logo_Girona_FC_-_2022.svg.png" alt="Girona FC" style="width:20px; vertical-align: middle;"> Girona FC
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/ar/archive/3/3d/20170616022505%21CE_Sabadell_FC_logo.png" alt="Sabadell" style="width:20px; vertical-align: middle;"> CE Sabadell (loan)
+      </li>
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/a/a1/Logo_FC_Barcelona.svg/2023px-Logo_FC_Barcelona.svg.png" alt="Barcelona B" style="width:20px; vertical-align: middle;"> FC Barcelona B
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  
+  <div class="player-profile" id="lamine">
+    <h2>Lamine Yamal</h2>
+  
+    <p><strong>Full Name:</strong> Lamine Yamal Nasraoui Ebana</p>
+    <p><strong>Birthday:</strong> July 13, 2007</p>
+    <p><strong>Age:</strong></span> 17 years old</p>
+    <p><strong>Nationality:</strong> Spanish 🇪🇸</p>
+    <p><strong>Position:</strong> Forward / Winger</p>
+    <p><strong>Height:</strong> 1.78 m (5 ft 10 in)</p>
+    <p><strong>Current Club:</strong> FC Barcelona</p>
+  
+    <p><strong>Previous Clubs:</strong></p>
+    <ul style="text-align: left; display: inline-block; list-style: none; padding-left: 0;">
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona Youth" style="width:20px; vertical-align: middle;"> FC Barcelona Youth
+      </li>
+    </ul>
+  
+    <div class="back-button">
+      <a href="javascript:void(0)" onclick="goBack()">Back to Team</a>
+    </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <style>
+    .player img:hover, section img:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+<section style="background: linear-gradient(135deg, #00338d, #001a40); color: white; padding: 40px 20px; border-radius: 12px; max-width: 800px; margin: 50px auto; box-shadow: 0 10px 25px rgba(0,0,0,0.35); text-align: center;">
+    <img src="https://www.fcbarcelona.com/photo-resources/2024/10/13/242919cd-91d1-4ad9-9f7e-3c9d26cdd4d7/00-Hansi_Flick-M.jpg?width=2000&height=2500" alt="Hansi Flick" style="width: 180px; border-radius: 100px; border: 4px solid white; margin-bottom: 20px;">
+    <h2 style="font-size: 2.5em; margin-bottom: 10px;">Hansi-Dieter Flick</h2>
+    <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>Birthday:</strong> February 24, 1965</p>
+    <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>Clubs Played For:</strong> Bayern Munich, FC Köln</p>
+    <p style="font-size: 1.1em; max-width: 700px; margin: 0 auto;">
+      Hansi Flick is a world-renowned German football manager and former player, now head coach of FC Barcelona. He famously led Bayern Munich to a historic sextuple in 2020 and managed the German national team. Known for his tactical intelligence, attacking philosophy, and leadership, Flick brings elite experience and a winning mentality to the Catalan club.
+    </p>
+  </section>
+  
+   
+  <section style="background: linear-gradient(to top, #E5C100, #8B7500); padding: 50px 20px; max-width: 1000px; margin: 50px auto; border-radius: 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);">
+  <h2 style="text-align: center; color: #000000; font-size: 2.5em; margin-bottom: 30px;">History of FC Barcelona</h2>
+  <img src="https://images.unsplash.com/photo-1585170236738-aadfce97f025?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FtcCUyMG5vdXxlbnwwfHwwfHx8MA%3D%3D" alt="Camp Nou" style="width: 100%; border-radius: 8px; margin-bottom: 30px;">
+  <p style="font-size: 1.1em; color: #000000; line-height: 1.7;">
+    Founded in 1899 by Swiss footballer Joan Gamper, <strong>Futbol Club Barcelona</strong> quickly became more than a club — <em>“Més que un club”</em>. Known for its unique identity and democratic ownership, FC Barcelona has become a symbol of Catalan pride and resistance.
+  </p>
+  <p style="font-size: 1.1em; color: #000000; line-height: 1.7;">
+    The club has a rich legacy, with icons like Johan Cruyff, Ronaldinho, Xavi, Iniesta, and Lionel Messi shaping the global game. Barça's signature style — tiki-taka — revolutionized modern football, emphasizing quick passing, movement, and technique.
+  </p>
+  <p style="font-size: 1.1em; color: #000000; line-height: 1.7;">
+    FC Barcelona has won numerous domestic and international trophies, including:
+    <ul style="padding-left: 20px; color: #000000; line-height: 1.7;">
+    <li><strong>La Liga Titles:</strong> 27+</li>
+    <li><strong>Champions League Titles:</strong> 5</li>
+    <li><strong>Copa del Rey Wins:</strong> 30+</li>
+    <li><strong>FIFA Club World Cups:</strong> 3</li>
+    </ul>
+  </p>
+  <p style="font-size: 1.1em; color: #000000; line-height: 1.7;"></p>
+      With a new generation of talent and a historic legacy behind them, Barça continues to inspire millions worldwide — always staying true to its motto: <strong>"Més que un club"</strong>.
+    </p>
+  </section>
+ 
+  <section style="background: linear-gradient(135deg, #00338d, #001a40); padding: 50px 20px; max-width: 1000px; margin: 50px auto; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);">
+  <h2 style="text-align: center; color: #ffffff; font-size: 2.5em; margin-bottom: 40px;">Our 2024/25 Kits</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+
+    <div style="flex: 1 1 250px; max-width: 300px; background-color: #f4f4f4; border-radius: 10px; padding: 20px; text-align: center;">
+      <img src="https://www.prosoccer.com/cdn/shop/files/e9288824b28244d10f87ba76bfb48b6e_1500x.webp?v=1729389580" alt="Home Kit" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+      <h3 style="color: #0046a0;">Home Kit</h3>
+      <p style="color: #555;">Classic blaugrana stripes with a modern twist.</p>
+    </div>
+
+    <div style="flex: 1 1 250px; max-width: 300px; background-color: #f4f4f4; border-radius: 10px; padding: 20px; text-align: center;">
+      <img src=" https://kickoff-store.com/wp-content/uploads/2024/09/Maillot-Barca-2024-2025-Exterieur-1.jpg" alt="Away Kit" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+      <h3 style="color: #0046a0;">Away Kit</h3>
+      <p style="color: #555;">Sleek white and blue honoring the club’s heritage.</p>
+    </div>
+
+    <div style="flex: 1 1 250px; max-width: 300px; background-color: #f4f4f4; border-radius: 10px; padding: 20px; text-align: center;">
+      <img src="https://img.boutirapp.com/i/7bV9vX5Byk-f7v3gNgeygV6MDDEP9UANzpIt7DnuWVZ" alt="Third Kit" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+      <h3 style="color: #0046a0;">Third Kit</h3>
+      <p style="color: #555;">Bold and modern, perfect for away challenges.</p>
+      
+    </div>
+
+  </div>
+  
+</section>
+<section style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364); color: white; padding: 60px 20px; text-align: center; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); margin: 60px auto; max-width: 1000px;">
+  <h2 style="font-size: 2.8em; margin-bottom: 20px; color: #f4c300;">Lionel Messi - The Eternal Legend</h2>
+  <img src="https://wallpapercave.com/wp/tKyVxoR.jpg" alt="Lionel Messi" style="width: 400px; border-radius: 50%; border: 5px solid #f4c300; margin-bottom: 30px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);">
+  <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto 20px; line-height: 1.7;">
+    Lionel Andrés Messi, born on <strong>June 24, 1987</strong>, in Rosario, Argentina, is more than a footballer — he is a symbol of FC Barcelona's golden era. Messi joined Barça’s youth academy, La Masia, at just 13 and rose to become the club’s greatest player ever.
+  </p>
+  <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto 20px; line-height: 1.7;">
+    Between <strong>2004 and 2021</strong>, Messi scored <strong>672 goals</strong> in <strong>778 matches</strong> and provided <strong>300+ assists</strong>. With his vision, dribbling, and unparalleled brilliance, he led Barcelona to countless victories.
+  </p>
+  <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto 30px; line-height: 1.7;">
+    🏆 <strong>Achievements with FC Barcelona:</strong><br>
+    - 10× La Liga Champion<br>
+    - 4× UEFA Champions League Winner<br>
+    - 7× Copa del Rey<br>
+    - 3× FIFA Club World Cup<br>
+    - 6× Ballon d'Or (as a Barça player)
+  </p>
+  <p style="font-size: 1.3em; color: #f4c300; font-weight: bold; margin-bottom: 0;">
+    Forever in our hearts. Forever Barça. 💙❤️
+  </p>
+</section>
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 FC Barcelona. All rights reserved.</p>
+    <div class="socials">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: linear-gradient(to right, #0a0a23, #1e1e3f);
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .footer-content p {
+    margin: 0;
+    font-size: 0.9em;
+  }
+  .socials {
+    margin-top: 10px;
+  }
+  .socials a {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .socials img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.2s;
+  }
+  .socials img:hover {
+    transform: scale(1.2);
+  }
+</style>
+
+        
+     
+    
+

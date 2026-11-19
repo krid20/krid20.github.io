@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed Aziz Krid – Portfolio</title>
+<meta name="description" content="Portfolio of Mohamed Aziz Krid: web and mobile applications built with ASP.NET Core, Next.js, Flutter and PostgreSQL.">
+<style>
+:root {
+  --bg: #0d1117; --panel: #161b22; --border: #30363d;
+  --text: #e6edf3; --muted: #9da7b3; --accent: #58a6ff; --tag: #1f2a37;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+header { padding: 72px 0 40px; border-bottom: 1px solid var(--border); }
+header h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 2.8rem); letter-spacing: -0.02em; }
+header p { margin: 0; color: var(--muted); font-size: 1.1rem; max-width: 640px; }
+.links { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+.links a { border: 1px solid var(--border); padding: 6px 14px; border-radius: 999px; font-size: .95rem; }
+nav.jump { margin-top: 16px; font-size: .9rem; color: var(--muted); }
+nav.jump a { margin-right: 14px; }
+section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+h2 { margin: 0 0 8px; font-size: 1.4rem; }
+.lead { color: var(--muted); margin: 0 0 24px; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { background: var(--tag); color: var(--text); border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 6px; font-size: .85rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 20px; }
+.project { background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; display: flex; flex-direction: column; }
+.project.wide { grid-column: 1 / -1; }
+.shot { display: block; aspect-ratio: 16 / 9.5; background: #0b0f14; border-bottom: 1px solid var(--border); overflow: hidden; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .3s ease; }
+a.shot:hover img { transform: scale(1.03); }
+.body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.project h3 { margin: 0 0 4px; font-size: 1.2rem; }
+.meta { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
+.badge { display: inline-block; font-size: .75rem; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid #9e6a03; color: #e3b341; margin-left: 6px; vertical-align: middle; }
+.badge.private { border-color: #6e40c9; color: #bc8cff; }
+.project p { margin: 0 0 8px; }
+.project ul { margin: 8px 0; padding-left: 20px; }
+.project li { margin-bottom: 4px; }
+.project .skills { margin-top: 12px; }
+.actions { margin-top: auto; padding-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { border: 1px solid var(--border); padding: 6px 14px; border-radius: 8px; font-size: .9rem; }
+.btn.primary { background: #238636; border-color: #2ea043; color: #fff; }
+.btn.primary:hover { background: #2ea043; text-decoration: none; }
+.note { color: var(--muted); font-size: .85rem; margin-top: 12px; }
+/* Kompass overview illustration (no real data) */
+.mock { display: grid; grid-template-columns: 150px 1fr; height: 100%; font-size: 11px; color: var(--muted); }
+.mock .side { background: #10161e; border-right: 1px solid var(--border); padding: 14px 12px; }
+.mock .side b { display: block; color: var(--text); font-size: 13px; margin-bottom: 14px; }
+.mock .side span { display: block; padding: 5px 8px; border-radius: 5px; margin-bottom: 3px; }
+.mock .side span.on { background: var(--tag); color: var(--text); }
+.mock .main { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.mock .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mock .kpi { background: #10161e; border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
+.mock .kpi i { display: block; height: 8px; width: 60%; background: #263241; border-radius: 4px; margin-bottom: 8px; }
+.mock .kpi em { display: block; height: 14px; width: 40%; background: var(--accent); opacity: .7; border-radius: 4px; }
+.mock .table { background: #10161e; border: 1px solid var(--border); border-radius: 8px; padding: 10px; flex: 1; }
+.mock .row { display: grid; grid-template-columns: 2fr 1fr 1fr 70px; gap: 10px; padding: 7px 0; border-bottom: 1px solid #1c2430; align-items: center; }
+.mock .row i { height: 7px; background: #263241; border-radius: 4px; }
+.mock .row u { height: 14px; border-radius: 999px; background: #1f6feb55; }
+.mock .row:nth-child(3n) u { background: #2ea04355; }
+.mock .row:nth-child(4n) u { background: #9e6a0355; }
+@media (max-width: 560px) { .mock { grid-template-columns: 1fr; } .mock .side { display: none; } .mock .kpis { grid-template-columns: repeat(2, 1fr); } }
+footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Mohamed Aziz Krid</h1>
+  <p>Full-stack developer building web and mobile applications with C# / ASP.NET Core, Next.js, TypeScript, Flutter and PostgreSQL.</p>
+  <div class="links">
+    <a href="https://github.com/krid20">GitHub</a>
+  </div>
+  <nav class="jump"><a href="#skills">Skills</a><a href="#projects">Applications</a><a href="#web">Web projects &amp; demos</a><a href="#media">Video</a></nav>
+</header>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <p class="lead">Languages, frameworks and tools I have used in real projects.</p>
+  <div class="skills">
+    <span class="tag">C#</span>
+    <span class="tag">ASP.NET Core (MVC)</span>
+    <span class="tag">Entity Framework Core</span>
+    <span class="tag">TypeScript</span>
+    <span class="tag">JavaScript</span>
+    <span class="tag">Next.js</span>
+    <span class="tag">Flutter / Dart</span>
+    <span class="tag">PostgreSQL</span>
+    <span class="tag">Prisma</span>
+    <span class="tag">Supabase</span>
+    <span class="tag">HTML5</span>
+    <span class="tag">CSS3</span>
+    <span class="tag">Tailwind CSS</span>
+    <span class="tag">Bootstrap</span>
+    <span class="tag">Authentication &amp; roles</span>
+    <span class="tag">Adobe Premiere Pro</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Applications</h2>
+  <p class="lead">Full-stack and mobile applications.</p>
+  <div class="grid">
+
+    
+
+    <article class="project">
+      <div class="body">
+        <h3>ATIC Event Check-In</h3>
+        <div class="meta">Team project · Attendance system for a 2-day, 4-track workshop event</div>
+        <p>An admin tool that runs attendance for a multi-track event, from importing participants to emailing certificates.</p>
+        <ul>
+          <li>Imports participants from Excel or CSV and generates a personal QR code for each one</li>
+          <li>Sends QR codes by email, or exports them all as a ZIP</li>
+          <li>In-browser QR scanning for the opening ceremony and each workshop slot, with on-time and late tracking</li>
+          <li>Live dashboard with per-track occupancy and per-student history</li>
+          <li>Calculates attendance rates and automatically emails certificates to eligible participants</li>
+        </ul>
+        <div class="skills">
+          <span class="tag">Next.js 14</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span>
+          <span class="tag">Prisma</span><span class="tag">PostgreSQL (Supabase)</span><span class="tag">NextAuth</span>
+        </div>
+        <div class="actions"><a class="btn" href="https://github.com/ahmedmhiri/atic_check_in">View code on GitHub →</a></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="body">
+        <h3>Study Buddy <span class="badge">In progress</span></h3>
+        <div class="meta">Flutter mobile app · Class project</div>
+        <p>A cross-platform study app. Students group their work into subjects, write notes, and revise with quizzes.</p>
+        <ul>
+          <li>Account sign-in with Firebase Authentication</li>
+          <li>Subjects with Markdown notes</li>
+          <li>Quizzes written by hand or generated by AI, with validation and a preview before saving</li>
+          <li>Take a quiz with shuffled questions, see results, and review the attempt history</li>
+          <li>MVVM architecture, written from a feature spec</li>
+        </ul>
+        <div class="skills">
+          <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">MVVM</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="web">
+  <h2>Web projects &amp; live demos</h2>
+  <p class="lead">Front-end projects built with HTML, CSS and JavaScript. Every one of them runs in your browser, so click a screenshot to try it.</p>
+  <div class="grid">
+
+    <article class="project">
+      <a class="shot" href="demos/mario/index.html"><img src="img/mario.png" alt="Mini Mario Game screenshot" loading="lazy"></a>
+      <div class="body">
+        <h3>Mini Mario-Style Game</h3>
+        <div class="meta">Team project with Youssef Ayadi · Vanilla JavaScript</div>
+        <p>A side-scrolling platformer with 3 levels. Collect the coins, jump over the mushrooms and reach the princess.</p>
+        <ul>
+          <li>Game loop with gravity, jumping and collision detection</li>
+          <li>Score and level HUD, win and lose screens with restart</li>
+          <li>Responsive play area that recalculates its bounds when the window is resized</li>
+        </ul>
+        <div class="skills"><span class="tag">JavaScript</span><span class="tag">HTML5</span><span class="tag">CSS3</span></div>
+        <div class="actions">
+          <a class="btn primary" href="demos/mario/index.html">▶ Play the demo</a>
+          <a class="btn" href="https://github.com/krid20/krid20.github.io/tree/main/demos/mario">Code</a>
+        </div>
+        <p class="note">Controls: ← → or A / D to move, ↑, W or Space to jump. Needs a keyboard.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="shot" aria-label="Illustration of the Kompass back-office layout">
+        <div class="mock">
+          <div class="side">
+            <b>Kompass</b>
+            <span class="on">Dashboard</span><span>Clients</span><span>Equipment</span><span>Contracts</span><span>Interventions</span><span>Invoices</span><span>Personnel</span>
+          </div>
+          <div class="main">
+            <div class="kpis"><div class="kpi"><i></i><em></em></div><div class="kpi"><i></i><em></em></div><div class="kpi"><i></i><em></em></div><div class="kpi"><i></i><em></em></div></div>
+            <div class="table">
+              <div class="row"><i></i><i></i><i></i><u></u></div>
+              <div class="row"><i></i><i></i><i></i><u></u></div>
+              <div class="row"><i></i><i></i><i></i><u></u></div>
+              <div class="row"><i></i><i></i><i></i><u></u></div>
+              <div class="row"><i></i><i></i><i></i><u></u></div>
+              <div class="row"><i></i><i></i><i></i><u></u></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="body">
+        <h3>Kompass – Maintenance &amp; After-Sales Management <span class="badge private">Private</span></h3>
+        <div class="meta">Team project · Private client project (source code not public)</div>
+        <p>A platform for running a maintenance and after-sales service business. Staff use a back-office, and clients get a self-service portal where they can follow their equipment and report problems. A companion mobile app serves both clients and field technicians.</p>
+        <ul>
+          <li>Management of clients, equipment, contracts, personnel and invoices</li>
+          <li>Client service requests and tracking of interventions</li>
+          <li>Separate spaces and roles for staff, technicians and clients</li>
+          <li>Real-time notifications for new client requests</li>
+          <li>Android app (Flutter) for clients and technicians</li>
+        </ul>
+        <div class="skills">
+          <span class="tag">C#</span><span class="tag">ASP.NET Core 10</span><span class="tag">Entity Framework Core</span>
+          <span class="tag">PostgreSQL</span><span class="tag">Next.js</span><span class="tag">Flutter</span><span class="tag">Bootstrap 5</span>
+        </div>
+        <div class="actions"><span class="btn" style="color:var(--muted);cursor:default">&#128274; Private &ndash; no public demo or code</span></div>
+        <p class="note">The illustration above shows the general layout only. This is a private client project, so its code, data and live app are not public.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="shot" href="demos/barca/index.html"><img src="img/barca.png" alt="FC Barcelona fan site screenshot" loading="lazy"></a>
+      <div class="body">
+        <h3>FC Barcelona Fan Site</h3>
+        <div class="meta">Personal project · HTML / CSS</div>
+        <p>A three-page club site with the squad, the match calendar and the trophy cabinet.</p>
+        <ul>
+          <li>Player cards grouped by position</li>
+          <li>Match calendar with opponent crests</li>
+          <li>Trophies page</li>
+        </ul>
+        <div class="skills"><span class="tag">HTML5</span><span class="tag">CSS3</span></div>
+        <div class="actions">
+          <a class="btn primary" href="demos/barca/index.html">▶ Open the demo</a>
+          <a class="btn" href="https://github.com/krid20/krid20.github.io/tree/main/demos/barca">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="shot" href="demos/university/index.html"><img src="img/university.png" alt="University website screenshot" loading="lazy"></a>
+      <div class="body">
+        <h3>University Website (IIT)</h3>
+        <div class="meta">Class project · HTML / CSS</div>
+        <p>A website for the International Institute of Technology with news articles, a photo gallery and a registration form.</p>
+        <ul>
+          <li>Home page with news articles and three detail pages</li>
+          <li>Image gallery</li>
+          <li>Registration form</li>
+        </ul>
+        <div class="skills"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Forms</span></div>
+        <div class="actions">
+          <a class="btn primary" href="demos/university/index.html">▶ Open the demo</a>
+          <a class="btn" href="https://github.com/krid20/krid20.github.io/tree/main/demos/university">Code</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="media">
+  <h2>Video</h2>
+  <p class="lead">Work outside of code.</p>
+  <div class="grid">
+    <article class="project">
+      <div class="body">
+        <h3>Federated Project – Video Production</h3>
+        <div class="meta">Team project · Adobe Premiere Pro</div>
+        <p>Shot and edited a video for the federated class project, from the raw footage to the final export.</p>
+        <ul>
+          <li>Editing, cuts and transitions in Premiere Pro</li>
+          <li>Combined footage filmed by several team members</li>
+        </ul>
+        <div class="skills"><span class="tag">Adobe Premiere Pro</span><span class="tag">Video editing</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  © 2026 Mohamed Aziz Krid
+</footer>
+</div>
+</body>
+</html>
